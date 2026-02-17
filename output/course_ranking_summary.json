@@ -1,0 +1,86 @@
+{
+  "core_preference_ranking": [
+    {
+      "course": "ACC 6400 Advanced Tax Business Entities",
+      "responses": 55,
+      "metric": 2.4
+    },
+    {
+      "course": "ACC 6300 Data Analytics",
+      "responses": 55,
+      "metric": 3.5454545454545454
+    },
+    {
+      "course": "ACC 6560 Financial Theory & Research I",
+      "responses": 55,
+      "metric": 4.472727272727273
+    },
+    {
+      "course": "ACC 6060 Professionalism and Leadership",
+      "responses": 55,
+      "metric": 4.6909090909090905
+    },
+    {
+      "course": "ACC 6510 Financial Audit",
+      "responses": 55,
+      "metric": 4.818181818181818
+    },
+    {
+      "course": "ACC 6600 Business Law for Accountants",
+      "responses": 55,
+      "metric": 5.090909090909091
+    },
+    {
+      "course": "ACC 6350 Management Control Systems",
+      "responses": 55,
+      "metric": 5.127272727272727
+    },
+    {
+      "course": "ACC 6540 Professional Ethics",
+      "responses": 55,
+      "metric": 5.8545454545454545
+    }
+  ],
+  "elective_rating_ranking": [
+    {
+      "course": "ACC 6020 Advanced Financial Application",
+      "responses": 5,
+      "metric": 5.0
+    },
+    {
+      "course": "ACC 679R Taxation of Business Entities II",
+      "responses": 26,
+      "metric": 4.576923076923077
+    },
+    {
+      "course": "ACC 6600 Business Law for Accountants (if taken as an elective)",
+      "responses": 11,
+      "metric": 4.2727272727272725
+    },
+    {
+      "course": "ACC 6410 Tax Research & Procedure",
+      "responses": 4,
+      "metric": 4.25
+    },
+    {
+      "course": "ACC 6150 Information Systems Audit",
+      "responses": 28,
+      "metric": 4.142857142857143
+    },
+    {
+      "course": "ACC 6250 Financial Reporting and Analysis",
+      "responses": 24,
+      "metric": 3.8333333333333335
+    },
+    {
+      "course": "ACC 6350 Mgmt Control Sys (if taken as an elective)",
+      "responses": 13,
+      "metric": 3.6923076923076925
+    },
+    {
+      "course": "ACC 6140 Fraud Examination & Forensic Accounting",
+      "responses": 19,
+      "metric": 3.6842105263157894
+    }
+  ]
+}
