@@ -1,0 +1,29 @@
+name: Deterministic Course Ranking
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  rank-courses:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate deterministic rankings
+        run: python scripts/rank_courses.py
+
+      - name: Upload ranking outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: course-ranking-output
+          path: output/
