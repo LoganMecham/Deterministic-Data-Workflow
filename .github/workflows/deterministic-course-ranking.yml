@@ -19,11 +19,48 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install charting dependency
+        run: python -m pip install matplotlib
+
       - name: Generate deterministic rankings
         run: python scripts/rank_courses.py
 
-      - name: Upload ranking outputs
+      - name: Build rank order outputs
+        run: |
+          python - <<'PY'
+          import csv
+          import shutil
+          from pathlib import Path
+
+          import matplotlib.pyplot as plt
+
+          input_path = Path("output/core_course_ranking.csv")
+          outputs_dir = Path("outputs")
+          outputs_dir.mkdir(parents=True, exist_ok=True)
+
+          copied_csv = outputs_dir / "rank_order.csv"
+          shutil.copy2(input_path, copied_csv)
+
+          rows = []
+          with copied_csv.open(newline="", encoding="utf-8") as handle:
+              for row in csv.DictReader(handle):
+                  rows.append({"course": row["course"], "average_rank": float(row["average_rank"])})
+
+          rows = sorted(rows, key=lambda row: row["average_rank"], reverse=True)
+          courses = [row["course"] for row in rows]
+          values = [row["average_rank"] for row in rows]
+
+          plt.figure(figsize=(12, max(4, len(courses) * 0.5)))
+          plt.barh(courses, values, color="#4E79A7")
+          plt.xlabel("Average Rank")
+          plt.ylabel("Course")
+          plt.title("Core Course Ranking (Highest to Lowest Average Rank)")
+          plt.tight_layout()
+          plt.savefig(outputs_dir / "rank_order.png", dpi=200)
+          PY
+
+      - name: Upload rank order artifact
         uses: actions/upload-artifact@v4
         with:
-          name: course-ranking-output
-          path: output/
+          name: rank-order-outputs
+          path: outputs/
